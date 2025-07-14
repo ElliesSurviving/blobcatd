@@ -1,8 +1,10 @@
-# blobcatd
-
-so once upon a time i got [hit with an idea](https://wetdry.world/@gravitos/111063551410060977), and now i finally implemented it
+# blobcatd-android
 
 this is a daemon (made in bash) that posts blobcats into your notifications, with configurable delay and stuff
+original script by gravitos, made to work on android by ellie
+this utilises termux and termux:api, so make sure both of those are installed off of fdroid
+
+below is the original description untouched from the original repo
 
 ## features
 
