@@ -15,7 +15,7 @@ oneshot () {
     # pick an image
     image=$(find "$CONFIG_DIR/${character}" -type f -exec file --mime-type {} \+ | awk -F: '{if ($2 ~/image\//) print $1}' | shuf -n 1)
     # and send a notification
-    notify-send -a blobcatd -i "${image}" "blobcatd" "${message}"
+    termux-notification --image-path "${image}" -t "blobcatd" --content "${message}"
 }
 
 loop () {

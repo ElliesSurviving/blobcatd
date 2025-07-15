@@ -2,12 +2,10 @@ all:
 	echo 'this is a bash script, you either `make install` or `make uninstall` it'
 install:
 	chmod a+x ./blobcatd
-	su -c "cp './blobcatd' '/usr/bin/blobcatd'"
+	su -c "cp './blobcatd' '/data/data/com.termux/files/usr/bin/blobcatd'"
 	cp -R "./config/blobcatd" "${HOME}/.config/blobcatd"
-	if [ -d "${HOME}/.config/systemd" ]; then echo "systemd found"; cp -R "./blobcatd.service" "${HOME}/.config/systemd/user"; fi
 	echo "you can edit ${HOME}/.config/systemd/user/blobcatd.service if you want to change the settings of the daemon"
-	echo 'you can also start the daemon with `systemctl --user enable --now blobcatd`'
+	echo 'you cannot use systemd to start the daemon, this is termux, no such thing exists'
 uninstall:
-	su -c "rm '/usr/bin/blobcatd'"
+	su -c "rm '/data/data/com.termux/files/usr/bin/blobcatd'"
 	rm -rf "${HOME}/.config/blobcatd"
-	if [ -d "${HOME}/.config/systemd" ]; then echo 'systemd found; you will need to run `systemctl --user disable blobcatd` and `systemctl --user daemon-reload` if you enabled the daemon'; rm "${HOME}/.config/systemd/user/blobcatd.service"; fi
