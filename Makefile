@@ -1,6 +1,7 @@
 all: 
 	echo 'this is a bash script, you either `make install` or `make uninstall` it'
 install:
+	if [ ! -d "${HOME}/.config/" ]; then echo ".config dir not found, creating"; mkdir ${HOME}/.config; fi
 	chmod a+x ./blobcatd
 	cp './blobcatd' '/data/data/com.termux/files/usr/bin/blobcatd'
 	cp -R "./config/blobcatd" "${HOME}/.config/blobcatd"
